@@ -39,9 +39,11 @@ namespace Laboratorium_1.Controllers
             Unknown, Add, Mul, Sub, Div
         }
 
-        public IActionResult Calculator(Operator op) 
+        public IActionResult Calculator(Operator op, double? a, double? b) 
         {
             ViewBag.Op = op;
+            ViewBag.A = a;
+            ViewBag.B = b;
             return View();
         }
     }
