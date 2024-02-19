@@ -33,5 +33,16 @@ namespace Laboratorium_1.Controllers
         {
             return View();
         }
+
+        public enum Operator
+        {
+            Unknown, Add, Mul, Sub, Div
+        }
+
+        public IActionResult Calculator(Operator op) 
+        {
+            ViewBag.Op = op;
+            return View();
+        }
     }
 }
