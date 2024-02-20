@@ -54,7 +54,8 @@ namespace Laboratorium_2.Controllers
             return View();
         }
 
-        public IActionResult Result(Calculator calculator) 
+        [HttpPost]
+        public IActionResult Result([FromForm] Calculator calculator) 
         {
             if (!calculator.IsValid())
             {
