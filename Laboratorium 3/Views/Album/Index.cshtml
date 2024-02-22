@@ -1,7 +1,7 @@
 ﻿@model Dictionary<int, Album>
 
 <h2>Lista Albumów</h2>
-<table>
+@*<table>
     <tr>
         <th>
             Nazwa
@@ -41,4 +41,35 @@
         </tr>
     }
 
+</table> *@
+
+<table class="table">
+    <tr>
+        <th>
+            Nazwa
+        </th>
+        <th>
+            Nazwa zespołu
+        </th>
+        <th>
+            Akcje
+        </th>
+    </tr>
+
+    @foreach (var item in @Model)
+    {
+        <tr>
+            <td>
+                @item.Value.Name
+            </td>
+            <td>
+                @item.Value.Band
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-controller="Album" asp-action="Edit" asp-route-id=@item.Value.Id>Edytuj</a>
+                <a class="btn btn-primary" asp-controller="Album" asp-action="Details" asp-route-id=@item.Value.Id>Szczegóły</a>
+                <a class="btn btn-primary" asp-controller="Album" asp-action="Delete" asp-route-id=@item.Value.Id>Usuń</a>
+            </td>
+        </tr>
+    }
 </table>

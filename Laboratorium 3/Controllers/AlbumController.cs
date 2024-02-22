@@ -34,5 +34,50 @@ namespace Laboratorium_3.Controllers
                 return View(album);
             }
         }
+
+        //[HttpGet]
+        //public String Edit(int? id)
+        //{
+        //    return "Edycja " + id;
+        //}
+
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            if (_albums.Keys.Contains(id))
+            {
+                return View(_albums[id]);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Details(int id)
+        {
+            if (_albums.Keys.Contains(id))
+            {
+                return View(_albums[id]);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            if (_albums.Keys.Contains(id))
+            {
+                return View(_albums[id]);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
     }
 }
