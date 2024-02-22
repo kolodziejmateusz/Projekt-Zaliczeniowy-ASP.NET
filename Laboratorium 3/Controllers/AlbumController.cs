@@ -5,9 +5,11 @@ namespace Laboratorium_3.Controllers
 {
     public class AlbumController : Controller
     {
+        private static Dictionary<int, Album> _albums = new Dictionary<int, Album>();
+
         public IActionResult Index()
         {
-            return View();
+            return View(_albums);
         }
 
         [HttpGet]
@@ -21,11 +23,15 @@ namespace Laboratorium_3.Controllers
         {
             if (ModelState.IsValid)
             {
-                return View("ConfirmAlbum", album);
+                int id = _albums.Keys.Count != 0 ? _albums.Keys.Max() : 0;
+                album.Id = id + 1;
+                _albums.Add(album.Id, album);
+
+                return RedirectToAction("Index");
             }
             else
             {
-                return View();
+                return View(album);
             }
         }
     }

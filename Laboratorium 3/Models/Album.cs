@@ -13,7 +13,7 @@ namespace Laboratorium_3.Models
         [Required(ErrorMessage = "Podaj nazwe zespołu.")]
         [MaxLength(100, ErrorMessage = "Nazwa zespołu jest za długa"), MinLength(3, ErrorMessage = "Nazwa zespołu jest za któtka.")]
         public string Band { get; set; }
-        public List<string>? TrackList { get; set; }
+        public string? TrackList { get; set; }
         [Required(ErrorMessage = "Podaj date wydania.")]
         public DateTime ReleaseDate { get; set; }
         [Required(ErrorMessage = "Podaj czas trwania.")]
