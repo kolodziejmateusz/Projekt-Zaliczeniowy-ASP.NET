@@ -1,47 +1,6 @@
 ﻿@model Dictionary<int, Album>
 
 <h2>Lista Albumów</h2>
-@*<table>
-    <tr>
-        <th>
-            Nazwa
-        </th>
-        <th>
-            Nazwa zespołu
-        </th>
-        <th>
-            Lista piosenek
-        </th>
-        <th>
-            Data wydania
-        </th>
-        <th>
-            Czas trwania
-        </th>
-    </tr>
-
-    @foreach (var item in @Model)
-    {
-        <tr>
-            <td>
-                @item.Value.Name
-            </td>
-            <td>
-                @item.Value.Band
-            </td>
-            <td>
-                @item.Value.TrackList
-            </td>
-            <td>
-                @item.Value.ReleaseDate
-            </td>
-            <td>
-                @item.Value.Duration
-            </td>
-        </tr>
-    }
-
-</table> *@
 
 <table class="table">
     <tr>
