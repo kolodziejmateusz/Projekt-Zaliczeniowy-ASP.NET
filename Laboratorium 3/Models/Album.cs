@@ -17,6 +17,7 @@ namespace Laboratorium_3.Models
         [Required(ErrorMessage = "Podaj date wydania.")]
         public DateTime ReleaseDate { get; set; }
         [Required(ErrorMessage = "Podaj czas trwania.")]
-        public TimeSpan Duration { get; set; }
+        [RegularExpression(@"^([0-9]|[0-5][0-9]):[0-5][0-9]$", ErrorMessage = "Czas trwania musi być w formacie minuty i sekundy, 00:00 lub 0:00.")]
+        public string Duration { get; set; }
     }
 }
