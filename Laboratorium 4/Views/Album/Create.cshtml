@@ -1,4 +1,5 @@
-﻿@model Laboratorium_3.Models.Album
+﻿@using Laboratorium_4.Models
+@model Laboratorium_4.Models.Album
 
 <form asp-action="Create" method="post">
     @* <div asp-validation-summary="All"></div> *@
@@ -41,6 +42,14 @@
             <span asp-validation-for="Duration" class="text-danger"></span>
         </div>
         <input class="form-control" type="text" asp-for="Duration" />
+    </div>
+    
+    <div>
+        <label asp-for="Popularity"></label>
+        <div>
+            <span asp-validation-for="Popularity" class="text-danger"></span>
+        </div>
+        <select class="form-control" asp-for="Popularity" asp-items="@Html.GetEnumSelectList<Popularity>()"></select>
     </div>
 
     <br />

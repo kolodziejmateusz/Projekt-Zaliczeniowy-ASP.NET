@@ -1,15 +1,21 @@
-﻿using Laboratorium_3.Models;
+﻿using Laboratorium_4.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Laboratorium_3.Controllers
+namespace Laboratorium_4.Controllers
 {
     public class AlbumController : Controller
     {
-        private static Dictionary<int, Album> _albums = new Dictionary<int, Album>();
+        private readonly IAlbumService _albumService;
+
+        public AlbumController(IAlbumService albumService)
+        {
+            _albumService = albumService;
+        }
 
         public IActionResult Index()
         {
-            return View(_albums);
+            var albums = _albumService.FindAll();
+            return View(albums);
         }
 
         [HttpGet]
@@ -23,10 +29,7 @@ namespace Laboratorium_3.Controllers
         {
             if (ModelState.IsValid)
             {
-                int id = _albums.Keys.Count != 0 ? _albums.Keys.Max() : 0;
-                album.Id = id + 1;
-                _albums.Add(album.Id, album);
-
+                _albumService.Add(album);
                 return RedirectToAction("Index");
             }
             else
@@ -35,49 +38,42 @@ namespace Laboratorium_3.Controllers
             }
         }
 
-        //[HttpGet]
-        //public String Edit(int? id)
-        //{
-        //    return "Edycja " + id;
-        //}
+        public IActionResult Delete(int id)
+        {
+            _albumService.Delete(id);
+            return RedirectToAction("Index");
+        }
 
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            if (_albums.Keys.Contains(id))
-            {
-                return View(_albums[id]);
-            }
-            else
+            var album = _albumService.FindById(id);
+            if (album == null)
             {
                 return NotFound();
             }
+            return View(album);
         }
 
-        [HttpGet]
+        [HttpPost]
+        public IActionResult Edit(Album album)
+        {
+            if (ModelState.IsValid)
+            {
+                _albumService.Edit(album);
+                return RedirectToAction("Index");
+            }
+            return View(album);
+        }
+
         public IActionResult Details(int id)
         {
-            if (_albums.Keys.Contains(id))
-            {
-                return View(_albums[id]);
-            }
-            else
+            var album = _albumService.FindById(id);
+            if (album == null)
             {
                 return NotFound();
             }
-        }
-
-        [HttpGet]
-        public IActionResult Delete(int id)
-        {
-            if (_albums.Keys.Contains(id))
-            {
-                return View(_albums[id]);
-            }
-            else
-            {
-                return NotFound();
-            }
+            return View(album);
         }
     }
 }
