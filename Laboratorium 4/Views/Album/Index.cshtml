@@ -11,6 +11,9 @@
             Nazwa zespołu
         </th>
         <th>
+            Popularność albumu
+        </th>
+        <th>
             Akcje
         </th>
     </tr>
@@ -23,6 +26,9 @@
             </td>
             <td>
                 @item.Value.Band
+            </td>
+            <td>
+                @item.Value.Popularity
             </td>
             <td>
                 <a class="btn btn-primary" asp-controller="Album" asp-action="Edit" asp-route-id=@item.Value.Id>Edytuj</a>

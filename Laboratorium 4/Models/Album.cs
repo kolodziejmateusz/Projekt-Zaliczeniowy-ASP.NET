@@ -20,6 +20,7 @@ namespace Laboratorium_3.Models
         [Required(ErrorMessage = "Podaj czas trwania.")]
         [RegularExpression(@"^([0-9]|[0-5][0-9]):[0-5][0-9]$", ErrorMessage = "Czas trwania musi być w formacie minuty i sekundy, 00:00 lub 0:00.")]
         public string Duration { get; set; }
+        [Display(Name = "Popularność albumu")]
         public Popularity Popularity { get; set; }
     }
 }

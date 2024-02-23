@@ -1,11 +1,13 @@
-﻿namespace Laboratorium_4.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Laboratorium_4.Models
 {
     public enum Popularity
     {
-        Low = 1,
-        Moderate = 2,
-        High = 3,
-        TopChart = 4
+        [Display(Name = "Niska")]Low = 1,
+        [Display(Name = "Umiarkowane")]Moderate = 2,
+        [Display(Name = "Wysokie")]High = 3,
+        [Display(Name = "Lista przebojów!")]TopChart = 4
     }
 
 }
