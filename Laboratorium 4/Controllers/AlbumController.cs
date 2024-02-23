@@ -17,7 +17,7 @@ namespace Laboratorium_3.Controllers
                 TrackList = "Come Together, Something, Maxwell's Silver Hammer, Oh! Darling, Octopus's Garden, I Want You (She's So Heavy), Here Comes The Sun, Because, You Never Give Me Your Money, Sun King, Mean Mr. Mustard, Polythene Pam, She Came In Through The Bathroom Window, Golden Slumbers, Carry That Weight, The End, Her Majesty.",
                 ReleaseDate = new DateTime(1969, 9, 26),
                 Duration = "47:23",
-                Popularity = Popularity.High // Zakładając, że masz taką wartość w enumie Popularity
+                Popularity = Popularity.High
             };
 
             var album2 = new Album
@@ -39,7 +39,7 @@ namespace Laboratorium_3.Controllers
 
         public IActionResult Index()
         {
-            return View(_albums);
+            return View(_albums.Values.ToList());
         }
 
         [HttpGet]
