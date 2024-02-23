@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Laboratorium_4.Models;
+using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
 namespace Laboratorium_3.Models
@@ -19,5 +20,6 @@ namespace Laboratorium_3.Models
         [Required(ErrorMessage = "Podaj czas trwania.")]
         [RegularExpression(@"^([0-9]|[0-5][0-9]):[0-5][0-9]$", ErrorMessage = "Czas trwania musi być w formacie minuty i sekundy, 00:00 lub 0:00.")]
         public string Duration { get; set; }
+        public Popularity Popularity { get; set; }
     }
 }
