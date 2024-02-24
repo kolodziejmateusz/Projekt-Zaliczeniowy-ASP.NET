@@ -4,7 +4,7 @@
     {
         int Add(Album album);
         void Delete(int id);
-        void Update(Album albm);
+        void Edit(Album albm);
         List<Album> FindAll();
         Album? FindById(int id);
     }
