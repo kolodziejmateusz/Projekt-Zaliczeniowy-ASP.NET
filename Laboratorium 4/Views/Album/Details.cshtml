@@ -41,6 +41,12 @@
         <dd class="col-sm-10">
             @Model.Popularity.GetDisplayName()
         </dd>
+        <dt class="col-sm-2">
+            Data i godzina dodania
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Created
+        </dd>
     </dl>
 </div>
 <a class="btn btn-primary" asp-controller="Album" asp-action="Edit" asp-route-id="@Model.Id">Edytuj</a>

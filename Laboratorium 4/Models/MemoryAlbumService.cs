@@ -81,6 +81,7 @@
 
         public int Add(Album item)
         {
+            item.Created = DateTime.Now;
             int id = _items.Keys.Count != 0 ? _items.Keys.Max() : 0;
             item.Id = id + 1;
             _items.Add(item.Id, item);

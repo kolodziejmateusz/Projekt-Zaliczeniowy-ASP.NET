@@ -27,5 +27,7 @@ namespace Laboratorium_4.Models
         public string Duration { get; set; }
         [Display(Name = "Popularność albumu")]
         public Popularity Popularity { get; set; }
+        [HiddenInput]
+        public DateTime Created {  get; set; }
     }
 }
