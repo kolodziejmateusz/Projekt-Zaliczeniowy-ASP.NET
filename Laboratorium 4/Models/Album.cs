@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
-namespace Laboratorium_3.Models
+namespace Laboratorium_4.Models
 {
     public class Album
     {
