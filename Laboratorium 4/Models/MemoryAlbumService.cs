@@ -33,6 +33,50 @@
                 Popularity = Popularity.TopChart
             });
 
+            Add(new Album
+            {
+                Id = 3,
+                Name = "Nasza Ziemia Eden",
+                Band = "Papa Dance",
+                TrackList = "Galaktyczny zwiad, Nasz Disneyland, Temat na clip, It's a simple song, Zły omen, Czas szaleństwa, Nietykalni, Ciało i talent..., Skajlajt, Twój ziemski Eden, The End",
+                ReleaseDate = new DateTime(1989, 3, 1),
+                Duration = "57:03",
+                Popularity = Popularity.Moderate
+            });
+
+            Add(new Album
+            {
+                Id = 4,
+                Name = "Zawsze Tam, Gdzie Ty",
+                Band = "Lady Pank",
+                TrackList = "Dopóki da czas, Przerwa w trasie, Co mnie to obchodzi, Jak igła, Nie omijaj mnie, Niedokończona ulica, Nie wpychaj mnie w to dno, Zawsze tam gdzie ty, Zapłacę każdą cenę, Wiara we wroga",
+                ReleaseDate = new DateTime(1994, 1, 1), // Zastąp odpowiednią datą wydania
+                Duration = "41:27", // Zastąp odpowiednim czasem trwania
+                Popularity = Popularity.High
+            });
+
+            Add(new Album
+            {
+                Id = 5,
+                Name = "Synchronicity",
+                Band = "The Police",
+                TrackList = "Synchronicity I, Walking in Your Footsteps, O My God, Mother, Miss Gradenko, Synchronicity II, Every Breath You Take, King of Pain, Wrapped Around Your Finger, Tea in the Sahara",
+                ReleaseDate = new DateTime(1983, 6, 17),
+                Duration = "44:18",
+                Popularity = Popularity.TopChart
+            });
+
+            Add(new Album
+            {
+                Id = 6,
+                Name = "Thriller",
+                Band = "Michael Jackson",
+                TrackList = "Wanna Be Startin' Somethin', Baby Be Mine, The Girl Is Mine, Thriller, Beat It, Billie Jean, Human Nature, P.Y.T. (Pretty Young Thing), The Lady in My Life",
+                ReleaseDate = new DateTime(1982, 11, 30),
+                Duration = "42:19",
+                Popularity = Popularity.TopChart
+            });
+
         }
 
         public int Add(Album item)
