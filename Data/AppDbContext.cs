@@ -88,7 +88,7 @@ namespace Data
                 },
                 new AlbumEntity()
                 {
-                    Id = 6,
+                    Id = 7,
                     Name = "Thriller",
                     Band = "Michael Jackson",
                     TrackList = "Wanna Be Startin' Somethin', Baby Be Mine, The Girl Is Mine, Thriller, Beat It, Billie Jean, Human Nature, P.Y.T. (Pretty Young Thing), The Lady in My Life",
