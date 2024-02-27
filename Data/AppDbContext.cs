@@ -89,11 +89,11 @@ namespace Data
                 new AlbumEntity()
                 {
                     Id = 7,
-                    Name = "Thriller",
-                    Band = "Michael Jackson",
-                    TrackList = "Wanna Be Startin' Somethin', Baby Be Mine, The Girl Is Mine, Thriller, Beat It, Billie Jean, Human Nature, P.Y.T. (Pretty Young Thing), The Lady in My Life",
-                    ReleaseDate = new DateTime(1982, 11, 30),
-                    Duration = "42:19",
+                    Name = "Back in Black",
+                    Band = "AC/DC",
+                    TrackList = "Hells Bells, Shoot to Thrill, What Do You Do for Money Honey, Givin the Dog a Bone, Let Me Put My Love Into You, Back in Black, You Shook Me All Night Long, Have a Drink on Me, Shake a Leg, Rock and Roll Ain't Noise Pollution",
+                    ReleaseDate = new DateTime(1980, 7, 25),
+                    Duration = "42:11",
                     Popularity = Popularity.TopChart
                 });
         }
