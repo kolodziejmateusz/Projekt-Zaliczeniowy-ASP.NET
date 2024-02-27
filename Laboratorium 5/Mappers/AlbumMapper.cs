@@ -7,6 +7,11 @@ namespace Laboratorium_5.Mappers
     {
         public static Album FromEntity(AlbumEntity entity)
         {
+            if(entity == null)
+            {
+                return null;
+            }
+            
             return new Album()
             {
                 Id = entity.Id,

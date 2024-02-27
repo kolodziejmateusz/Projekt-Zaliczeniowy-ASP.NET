@@ -44,6 +44,7 @@ namespace Laboratorium_5.Models
         public void Edit(Album album)
         {
             _context.Albums.Update(AlbumMapper.ToEntity(album));
+            _context.SaveChanges();
         }
     }
 }
