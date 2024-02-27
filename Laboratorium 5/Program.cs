@@ -10,7 +10,9 @@ namespace Laboratorium_5
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddSingleton<IAlbumService, MemoryAlbumService>();
+            //builder.Services.AddSingleton<IAlbumService, MemoryAlbumService>();
+            builder.Services.AddDbContext<Data.AppDbContext>();
+            builder.Services.AddTransient<IAlbumService, EFAlbumService>();
 
             var app = builder.Build();
 
