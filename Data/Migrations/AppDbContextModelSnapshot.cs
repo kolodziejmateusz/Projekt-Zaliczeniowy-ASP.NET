@@ -170,7 +170,7 @@ namespace Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("RecordLabels");
+                    b.ToTable("recordlabel");
 
                     b.HasData(
                         new
@@ -261,7 +261,7 @@ namespace Data.Migrations
 
                             b1.HasKey("RecordLabelEntityId");
 
-                            b1.ToTable("RecordLabels");
+                            b1.ToTable("recordlabel");
 
                             b1.WithOwner()
                                 .HasForeignKey("RecordLabelEntityId");

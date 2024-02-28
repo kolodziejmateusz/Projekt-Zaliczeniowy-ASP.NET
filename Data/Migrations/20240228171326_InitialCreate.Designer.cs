@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240228102502_InitialCreate")]
+    [Migration("20240228171326_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -173,7 +173,7 @@ namespace Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("RecordLabels");
+                    b.ToTable("recordlabel");
 
                     b.HasData(
                         new
@@ -264,7 +264,7 @@ namespace Data.Migrations
 
                             b1.HasKey("RecordLabelEntityId");
 
-                            b1.ToTable("RecordLabels");
+                            b1.ToTable("recordlabel");
 
                             b1.WithOwner()
                                 .HasForeignKey("RecordLabelEntityId");

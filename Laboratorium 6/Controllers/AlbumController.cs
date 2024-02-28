@@ -1,5 +1,6 @@
 ﻿using Laboratorium_6.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Laboratorium_6.Controllers
 {
@@ -18,10 +19,21 @@ namespace Laboratorium_6.Controllers
             return View(albums);
         }
 
+        private void InitializeRecordLabels(Album model)
+        {
+            model.RecordLabels = _albumService
+                .FindAllOrganizations()
+                .Select(o => new SelectListItem { Value = o.Id.ToString(), Text = o.Name })
+                .ToList();
+        }
+
+
         [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            Album model = new Album();
+            InitializeRecordLabels(model);
+            return View(model);
         }
 
         [HttpPost]
@@ -34,6 +46,7 @@ namespace Laboratorium_6.Controllers
             }
             else
             {
+                InitializeRecordLabels(album);
                 return View(album);
             }
         }

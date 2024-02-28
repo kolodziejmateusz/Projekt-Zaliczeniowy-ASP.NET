@@ -52,6 +52,12 @@
         <select class="form-control" asp-for="Popularity" asp-items="@Html.GetEnumSelectList<Popularity>()"></select>
     </div>
 
+    <div>
+        <label asp-for="RecordLabelId"></label>
+        <div></div>
+        <select class="form-control" asp-for="RecordLabelId" asp-items="@Model.RecordLabels"></select>
+    </div>
+
     <br />
 
     <button type="submit">Zapisz</button>

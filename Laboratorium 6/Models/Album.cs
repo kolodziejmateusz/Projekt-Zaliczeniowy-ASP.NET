@@ -1,5 +1,7 @@
 ﻿using Laboratorium_6.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 
 namespace Laboratorium_6.Models
@@ -29,5 +31,10 @@ namespace Laboratorium_6.Models
         public Popularity Popularity { get; set; }
         [HiddenInput]
         public DateTime Created {  get; set; }
+        [HiddenInput]
+        [Display(Name = "Wytwórnia")]
+        public int RecordLabelId { get; set; }
+        [ValidateNever]
+        public List<SelectListItem> RecordLabels { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace Data.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "RecordLabels",
+                name: "recordlabel",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false),
@@ -32,7 +32,7 @@ namespace Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_RecordLabels", x => x.Id);
+                    table.PrimaryKey("PK_recordlabel", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -54,15 +54,15 @@ namespace Data.Migrations
                 {
                     table.PrimaryKey("PK_albums", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_albums_RecordLabels_RecordLabelId",
+                        name: "FK_albums_recordlabel_RecordLabelId",
                         column: x => x.RecordLabelId,
-                        principalTable: "RecordLabels",
+                        principalTable: "recordlabel",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
-                table: "RecordLabels",
+                table: "recordlabel",
                 columns: new[] { "Id", "Address_ApartmentNumber", "Address_City", "Address_Country", "Address_HouseNumber", "Address_PostalCode", "Address_State", "Address_Street", "Name", "Nip", "Regon", "Website" },
                 values: new object[,]
                 {
@@ -100,7 +100,7 @@ namespace Data.Migrations
                 name: "albums");
 
             migrationBuilder.DropTable(
-                name: "RecordLabels");
+                name: "recordlabel");
         }
     }
 }

@@ -46,5 +46,10 @@ namespace Laboratorium_6.Models
             _context.Albums.Update(AlbumMapper.ToEntity(album));
             _context.SaveChanges();
         }
+
+        public List<RecordLabelEntity> FindAllOrganizations()
+        {
+            return _context.RecordLabels.ToList();
+        }
     }
 }

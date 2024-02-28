@@ -1,4 +1,6 @@
-﻿namespace Laboratorium_6.Models
+﻿using Data.Entities;
+
+namespace Laboratorium_6.Models
 {
     public interface IAlbumService
     {
@@ -7,5 +9,6 @@
         void Edit(Album albm);
         List<Album> FindAll();
         Album? FindById(int id);
+        List<RecordLabelEntity> FindAllOrganizations();
     }
 }

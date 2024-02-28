@@ -21,7 +21,8 @@ namespace Laboratorium_6.Mappers
                 ReleaseDate = entity.ReleaseDate,
                 Duration = entity.Duration,
                 Popularity = (Models.Popularity)entity.Popularity,
-                Created = entity.Created
+                Created = entity.Created,
+                RecordLabelId = entity.RecordLabelId
             };
         }
 
@@ -36,7 +37,8 @@ namespace Laboratorium_6.Mappers
                 ReleaseDate = model.ReleaseDate,
                 Duration = model.Duration,
                 Popularity = (Data.Entities.Popularity)model.Popularity,
-                Created = model.Created
+                Created = model.Created,
+                RecordLabelId = model.RecordLabelId
             };
         }
     }
