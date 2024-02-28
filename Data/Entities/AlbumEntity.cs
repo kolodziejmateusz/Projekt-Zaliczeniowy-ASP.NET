@@ -26,6 +26,8 @@ namespace Data.Entities
         public string Duration { get; set; }
         public Popularity Popularity { get; set; }
         public DateTime Created { get; set; }
+        public int RecordLabelId { get; set; }
+        public RecordLabelEntity? RecordLabel { get; set; }
     }
 
     public enum Popularity
