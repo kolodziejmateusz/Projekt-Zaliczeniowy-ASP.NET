@@ -27,15 +27,6 @@ namespace Data
         {
             modelBuilder.Entity<AlbumEntity>().HasOne(e => e.RecordLabel).WithMany(o => o.Albums).HasForeignKey(e => e.RecordLabelId);
 
-            modelBuilder.Entity<RecordLabelEntity>().OwnsOne(e => e.Address)
-                .HasData(
-                new { RecordLabelEntityId = 1, City = "Warszawa", Street = "Marszałkowska", HouseNumber = "27A", PostalCode = "00-639", State = "mazowieckie", Country = "Poland" },
-                new { RecordLabelEntityId = 2, City = "Gdańsk", Street = "Długa", HouseNumber = "45/6", PostalCode = "80-831", State = "pomorskie", Country = "Poland" },
-                new { RecordLabelEntityId = 3, City = "Wrocław", Street = "Rynek", HouseNumber = "13", PostalCode = "50-101", State = "dolnośląskie", Country = "Poland" },
-                new { RecordLabelEntityId = 4, City = "Kraków", Street = "Floriańska", HouseNumber = "39", PostalCode = "31-019", State = "małopolskie", Country = "Poland" },
-                new { RecordLabelEntityId = 5, City = "Poznań", Street = "Święty Marcin", HouseNumber = "80/82", PostalCode = "61-809", State = "wielkopolskie", Country = "Poland" }
-                );
-
             modelBuilder.Entity<RecordLabelEntity>().HasData(
                 new RecordLabelEntity
                 {
@@ -77,7 +68,16 @@ namespace Data
                     Nip = "543219876",
                     Website = "www.retrosoundstudios.com"
                 });
-            
+
+            modelBuilder.Entity<RecordLabelEntity>().OwnsOne(e => e.Address)
+                .HasData(
+                new { RecordLabelEntityId = 1, City = "Warszawa", Street = "Marszałkowska", HouseNumber = "27A", PostalCode = "00-639", State = "mazowieckie", Country = "Poland" },
+                new { RecordLabelEntityId = 2, City = "Gdańsk", Street = "Długa", HouseNumber = "45/6", PostalCode = "80-831", State = "pomorskie", Country = "Poland" },
+                new { RecordLabelEntityId = 3, City = "Wrocław", Street = "Rynek", HouseNumber = "13", PostalCode = "50-101", State = "dolnośląskie", Country = "Poland" },
+                new { RecordLabelEntityId = 4, City = "Kraków", Street = "Floriańska", HouseNumber = "39", PostalCode = "31-019", State = "małopolskie", Country = "Poland" },
+                new { RecordLabelEntityId = 5, City = "Poznań", Street = "Święty Marcin", HouseNumber = "80/82", PostalCode = "61-809", State = "wielkopolskie", Country = "Poland" }
+                );
+
             modelBuilder.Entity<AlbumEntity>().HasData(
                 
                 new AlbumEntity()
