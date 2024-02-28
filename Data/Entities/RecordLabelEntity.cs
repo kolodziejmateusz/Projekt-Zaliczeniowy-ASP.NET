@@ -14,7 +14,6 @@ namespace Data.Entities
         public string Nip { get; set; }
         public Address? Address { get; set; }
         public string Website { get; set; }
-        public ISet<RecordLabelEntity> Albums { get; set; }
-
+        public ISet<AlbumEntity> Albums { get; set; }
     }
 }

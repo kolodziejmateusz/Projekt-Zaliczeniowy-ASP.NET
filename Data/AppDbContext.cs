@@ -11,6 +11,7 @@ namespace Data
     public class AppDbContext : DbContext
     {
         public DbSet<AlbumEntity> Albums { get; set; }
+        public DbSet<RecordLabelEntity> RecordLabels { get; set; }
         private string DbPath { get; set; }
 
         public AppDbContext()
@@ -24,6 +25,10 @@ namespace Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<RecordLabelEntity>().OwnsOne(e => e.Address);
+
+            modelBuilder.Entity<AlbumEntity>().HasOne(e => e.RecordLabel).WithMany(o => o.Albums).HasForeignKey(e => e.RecordLabelId);
+
             modelBuilder.Entity<AlbumEntity>().HasData(
                 
                 new AlbumEntity()
