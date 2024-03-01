@@ -2,6 +2,7 @@ using Laboratorium_7.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Data;
+using System.Xml.Linq;
 
 namespace Laboratorium_7
 {
@@ -13,12 +14,18 @@ namespace Laboratorium_7
             var connectionString = builder.Configuration.GetConnectionString("AppDbContextConnection") ?? throw new InvalidOperationException("Connection string 'AppDbContextConnection' not found.");
 
             // Add services to the container.
+            builder.Services.AddRazorPages();
             builder.Services.AddControllersWithViews();
             //builder.Services.AddSingleton<IAlbumService, MemoryAlbumService>();
             builder.Services.AddDbContext<Data.AppDbContext>();
+            builder.Services.AddDefaultIdentity<IdentityUser>()
+                .AddRoles<IdentityRole>()   
+                .AddEntityFrameworkStores<Data.AppDbContext>();
 
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<AppDbContext>();
             builder.Services.AddTransient<IAlbumService, EFAlbumService>();
+            builder.Services.AddMemoryCache();
+            builder.Services.AddSession();
 
             var app = builder.Build();
 
@@ -35,7 +42,11 @@ namespace Laboratorium_7
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
+            app.UseSession();
+            app.MapRazorPages();
+
 
             app.MapControllerRoute(
                 name: "default",
