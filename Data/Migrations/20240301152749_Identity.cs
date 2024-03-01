@@ -13,24 +13,34 @@ namespace Data.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DeleteData(
-                table: "AspNetRoles",
-                keyColumn: "Id",
-                keyValue: "7cb2c6fe-19bc-4559-998b-99bd3a8f7af3");
+                table: "AspNetUserRoles",
+                keyColumns: new[] { "RoleId", "UserId" },
+                keyValues: new object[] { "a84be82d-9cc0-4d5d-9c19-01e72108061a", "17bf772f-1a7d-4788-a2a9-5ed97f36f705" });
 
             migrationBuilder.DeleteData(
                 table: "AspNetUserRoles",
                 keyColumns: new[] { "RoleId", "UserId" },
-                keyValues: new object[] { "14e8deee-c0e8-49fd-8243-f88d96507686", "9d13ff6b-0a10-4eb4-bd98-c547af7d6bc3" });
+                keyValues: new object[] { "96fcd6e3-91c0-4745-adb8-0d276b245ee7", "b6bda1e1-547d-4a22-9594-def408a2b578" });
 
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "14e8deee-c0e8-49fd-8243-f88d96507686");
+                keyValue: "96fcd6e3-91c0-4745-adb8-0d276b245ee7");
+
+            migrationBuilder.DeleteData(
+                table: "AspNetRoles",
+                keyColumn: "Id",
+                keyValue: "a84be82d-9cc0-4d5d-9c19-01e72108061a");
 
             migrationBuilder.DeleteData(
                 table: "AspNetUsers",
                 keyColumn: "Id",
-                keyValue: "9d13ff6b-0a10-4eb4-bd98-c547af7d6bc3");
+                keyValue: "17bf772f-1a7d-4788-a2a9-5ed97f36f705");
+
+            migrationBuilder.DeleteData(
+                table: "AspNetUsers",
+                keyColumn: "Id",
+                keyValue: "b6bda1e1-547d-4a22-9594-def408a2b578");
 
             migrationBuilder.AlterColumn<int>(
                 name: "Id",
@@ -46,8 +56,8 @@ namespace Data.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "b982e513-614c-40ad-a678-f1ef0a1e3878", "b982e513-614c-40ad-a678-f1ef0a1e3878", "user", "USER" },
-                    { "f965f8f7-1ba1-4d91-b858-a6ce0ebf8427", "f965f8f7-1ba1-4d91-b858-a6ce0ebf8427", "admin", "ADMIN" }
+                    { "9fdd4a82-b814-4005-a77e-9a77003ab681", "9fdd4a82-b814-4005-a77e-9a77003ab681", "user", "USER" },
+                    { "c1c4d84f-0494-45e6-8c66-99a5034df6b5", "c1c4d84f-0494-45e6-8c66-99a5034df6b5", "admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(
@@ -55,8 +65,8 @@ namespace Data.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "4df0409c-175e-42f6-bab8-511559bb294e", 0, "d6a35ba4-00cb-4e35-9aad-dbe294749799", "jan@wsei.edu.pl", true, false, null, "JAN@WSEI.EDU.PL", "JAN", "AQAAAAIAAYagAAAAEBWjy5OcaKbp+JKhg/BlCIIA/RSEjZz8KFKmtbVazRFb8o3r9xI4JrXFEGF3CJF5Gw==", null, false, "6799b897-1a08-4855-880a-a38fe2916d74", false, "jan" },
-                    { "f49ef2d9-a305-4279-8dc2-bc6204fb5823", 0, "d9d475e9-3470-4627-9aa1-12e5b48ea8e4", "adam@wsei.edu.pl", true, false, null, "ADAM@WSEI.EDU.PL", "ADMIN", "AQAAAAIAAYagAAAAELTm3abnv+DM6ooTkaH1pM4VR78kC2oyr65fK55/nWWiiO+hUBqxbl1H2YJLSWDruw==", null, false, "bb906c65-11d9-42b4-b3e6-7bcacee9e0d1", false, "adam" }
+                    { "6461dc48-f9f5-4fc6-b338-d07cbc9c9846", 0, "d9814211-af85-4354-b503-7ef6034bace3", "adam@wsei.edu.pl", true, false, null, "ADAM@WSEI.EDU.PL", "ADAM@WSEI.EDU.PL", "AQAAAAIAAYagAAAAEBcyv97JuDnm1esnxhdEGx8RtLiHTAn/a9TNCaujfqBLu2kVALnol9Sh0rHVfXNCcw==", null, false, "7d0e2045-b08a-40ec-8e88-33f2097555d7", false, "adam@wsei.edu.pl" },
+                    { "b2140c6d-532b-4a72-a2f0-909c75212e34", 0, "b6474c43-8e82-4711-8efa-9ed71311ac2b", "jan@wsei.edu.pl", true, false, null, "JAN@WSEI.EDU.PL", "JAN@WSEI.EDU.PL", "AQAAAAIAAYagAAAAEPV+oDX0+SXWqp5AJECZV7PSeYF0aQEOhndt1xMp2bjI9eu8pyCmr8yyGTJtxiv1Yw==", null, false, "ec6cb6a4-040c-4e7f-a84e-e493bca25b1f", false, "jan@wsei.edu.pl" }
                 });
 
             migrationBuilder.InsertData(
@@ -64,8 +74,8 @@ namespace Data.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "b982e513-614c-40ad-a678-f1ef0a1e3878", "4df0409c-175e-42f6-bab8-511559bb294e" },
-                    { "f965f8f7-1ba1-4d91-b858-a6ce0ebf8427", "f49ef2d9-a305-4279-8dc2-bc6204fb5823" }
+                    { "c1c4d84f-0494-45e6-8c66-99a5034df6b5", "6461dc48-f9f5-4fc6-b338-d07cbc9c9846" },
+                    { "9fdd4a82-b814-4005-a77e-9a77003ab681", "b2140c6d-532b-4a72-a2f0-909c75212e34" }
                 });
         }
 
@@ -75,32 +85,32 @@ namespace Data.Migrations
             migrationBuilder.DeleteData(
                 table: "AspNetUserRoles",
                 keyColumns: new[] { "RoleId", "UserId" },
-                keyValues: new object[] { "b982e513-614c-40ad-a678-f1ef0a1e3878", "4df0409c-175e-42f6-bab8-511559bb294e" });
+                keyValues: new object[] { "c1c4d84f-0494-45e6-8c66-99a5034df6b5", "6461dc48-f9f5-4fc6-b338-d07cbc9c9846" });
 
             migrationBuilder.DeleteData(
                 table: "AspNetUserRoles",
                 keyColumns: new[] { "RoleId", "UserId" },
-                keyValues: new object[] { "f965f8f7-1ba1-4d91-b858-a6ce0ebf8427", "f49ef2d9-a305-4279-8dc2-bc6204fb5823" });
+                keyValues: new object[] { "9fdd4a82-b814-4005-a77e-9a77003ab681", "b2140c6d-532b-4a72-a2f0-909c75212e34" });
 
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "b982e513-614c-40ad-a678-f1ef0a1e3878");
+                keyValue: "9fdd4a82-b814-4005-a77e-9a77003ab681");
 
             migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "f965f8f7-1ba1-4d91-b858-a6ce0ebf8427");
+                keyValue: "c1c4d84f-0494-45e6-8c66-99a5034df6b5");
 
             migrationBuilder.DeleteData(
                 table: "AspNetUsers",
                 keyColumn: "Id",
-                keyValue: "4df0409c-175e-42f6-bab8-511559bb294e");
+                keyValue: "6461dc48-f9f5-4fc6-b338-d07cbc9c9846");
 
             migrationBuilder.DeleteData(
                 table: "AspNetUsers",
                 keyColumn: "Id",
-                keyValue: "f49ef2d9-a305-4279-8dc2-bc6204fb5823");
+                keyValue: "b2140c6d-532b-4a72-a2f0-909c75212e34");
 
             migrationBuilder.AlterColumn<int>(
                 name: "Id",
@@ -116,19 +126,27 @@ namespace Data.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "14e8deee-c0e8-49fd-8243-f88d96507686", "14e8deee-c0e8-49fd-8243-f88d96507686", "admin", "ADMIN" },
-                    { "7cb2c6fe-19bc-4559-998b-99bd3a8f7af3", "7cb2c6fe-19bc-4559-998b-99bd3a8f7af3", "user", "USER" }
+                    { "96fcd6e3-91c0-4745-adb8-0d276b245ee7", "96fcd6e3-91c0-4745-adb8-0d276b245ee7", "user", "USER" },
+                    { "a84be82d-9cc0-4d5d-9c19-01e72108061a", "a84be82d-9cc0-4d5d-9c19-01e72108061a", "admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "9d13ff6b-0a10-4eb4-bd98-c547af7d6bc3", 0, "9ad78fc1-2262-492b-9fb3-5c43cd688e1b", "adam@wsei.edu.pl", true, false, null, "ADAM@WSEI.EDU.PL", "ADMIN", "AQAAAAIAAYagAAAAEPtNf+P9RbM26morzFy8bnaRGB6tGC/Pu4P71XqKSeBSqk/r3RBApmVtlDtNmfwBTQ==", null, false, "e7300835-05fd-484d-acf0-8d2881596749", false, "adam" });
+                values: new object[,]
+                {
+                    { "17bf772f-1a7d-4788-a2a9-5ed97f36f705", 0, "507a0277-0de4-40de-8cd2-c19f4aed80f3", "adam@wsei.edu.pl", true, false, null, "ADAM@WSEI.EDU.PL", "ADMIN", "AQAAAAIAAYagAAAAEKBoM8K+SOOZxfWHcFElVXbdHs4E+Pc6NfsWovm+wgo7ZiKrFuu2gyNSN13Af1su9Q==", null, false, "d0f74fb0-48c7-4c59-81d8-5c2891024268", false, "adam@wsei.edu.pl" },
+                    { "b6bda1e1-547d-4a22-9594-def408a2b578", 0, "3a5cef33-a1df-4753-9a98-077323c7824e", "jan@wsei.edu.pl", true, false, null, "JAN@WSEI.EDU.PL", "JAN", "AQAAAAIAAYagAAAAEI4ki2PvfodYaWCaD1gDfvqm353bc28wrAH82W9isurUJy1gY8SezWAlIHgVmUC09w==", null, false, "266ce793-5b22-4368-afe1-31acf89291dd", false, "jan@wsei.edu.pl" }
+                });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "14e8deee-c0e8-49fd-8243-f88d96507686", "9d13ff6b-0a10-4eb4-bd98-c547af7d6bc3" });
+                values: new object[,]
+                {
+                    { "a84be82d-9cc0-4d5d-9c19-01e72108061a", "17bf772f-1a7d-4788-a2a9-5ed97f36f705" },
+                    { "96fcd6e3-91c0-4745-adb8-0d276b245ee7", "b6bda1e1-547d-4a22-9594-def408a2b578" }
+                });
         }
     }
 }

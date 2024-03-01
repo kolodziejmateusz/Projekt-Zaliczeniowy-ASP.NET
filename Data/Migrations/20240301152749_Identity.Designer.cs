@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240301145311_Identity2")]
-    partial class Identity2
+    [Migration("20240301152749_Identity")]
+    partial class Identity
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -246,15 +246,15 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "9fc8731d-26d3-409f-9043-b69a39e5cfa8",
-                            ConcurrencyStamp = "9fc8731d-26d3-409f-9043-b69a39e5cfa8",
+                            Id = "c1c4d84f-0494-45e6-8c66-99a5034df6b5",
+                            ConcurrencyStamp = "c1c4d84f-0494-45e6-8c66-99a5034df6b5",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "54693bf1-a310-4953-b350-c2dbb0ebaf08",
-                            ConcurrencyStamp = "54693bf1-a310-4953-b350-c2dbb0ebaf08",
+                            Id = "9fdd4a82-b814-4005-a77e-9a77003ab681",
+                            ConcurrencyStamp = "9fdd4a82-b814-4005-a77e-9a77003ab681",
                             Name = "user",
                             NormalizedName = "USER"
                         });
@@ -349,35 +349,35 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "d40e4c84-1cb2-4819-96f0-c363acaff7ec",
+                            Id = "6461dc48-f9f5-4fc6-b338-d07cbc9c9846",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c8a8f4ef-015c-4dd0-b840-2dcda5091421",
+                            ConcurrencyStamp = "d9814211-af85-4354-b503-7ef6034bace3",
                             Email = "adam@wsei.edu.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADAM@WSEI.EDU.PL",
-                            NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEHMzC5cDa87JFUgIzHPzMz//+x/lm8c7jumrnF68+OAKQLmpiLvEUBLyx3fcKwqZ5w==",
+                            NormalizedUserName = "ADAM@WSEI.EDU.PL",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBcyv97JuDnm1esnxhdEGx8RtLiHTAn/a9TNCaujfqBLu2kVALnol9Sh0rHVfXNCcw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4a16aacb-20aa-41fe-b001-55af4c0a0f98",
+                            SecurityStamp = "7d0e2045-b08a-40ec-8e88-33f2097555d7",
                             TwoFactorEnabled = false,
-                            UserName = "adam"
+                            UserName = "adam@wsei.edu.pl"
                         },
                         new
                         {
-                            Id = "d2f89a08-2f9a-4b80-a602-7f7eac81ef50",
+                            Id = "b2140c6d-532b-4a72-a2f0-909c75212e34",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4e67d393-a522-44ac-8408-fff4a2554167",
+                            ConcurrencyStamp = "b6474c43-8e82-4711-8efa-9ed71311ac2b",
                             Email = "jan@wsei.edu.pl",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "JAN@WSEI.EDU.PL",
-                            NormalizedUserName = "JAN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEN2O+rLl1OuTwrUuKtjce+fESn4jYV0xU+P42PnnTtKiTYlQHIwjp1+B8BKuFDmWw==",
+                            NormalizedUserName = "JAN@WSEI.EDU.PL",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPV+oDX0+SXWqp5AJECZV7PSeYF0aQEOhndt1xMp2bjI9eu8pyCmr8yyGTJtxiv1Yw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a0e0c4fe-8790-49d8-b49f-fbb3c20215da",
+                            SecurityStamp = "ec6cb6a4-040c-4e7f-a84e-e493bca25b1f",
                             TwoFactorEnabled = false,
-                            UserName = "jan"
+                            UserName = "jan@wsei.edu.pl"
                         });
                 });
 
@@ -443,13 +443,13 @@ namespace Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "d40e4c84-1cb2-4819-96f0-c363acaff7ec",
-                            RoleId = "9fc8731d-26d3-409f-9043-b69a39e5cfa8"
+                            UserId = "6461dc48-f9f5-4fc6-b338-d07cbc9c9846",
+                            RoleId = "c1c4d84f-0494-45e6-8c66-99a5034df6b5"
                         },
                         new
                         {
-                            UserId = "d2f89a08-2f9a-4b80-a602-7f7eac81ef50",
-                            RoleId = "54693bf1-a310-4953-b350-c2dbb0ebaf08"
+                            UserId = "b2140c6d-532b-4a72-a2f0-909c75212e34",
+                            RoleId = "9fdd4a82-b814-4005-a77e-9a77003ab681"
                         });
                 });
 
