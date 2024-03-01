@@ -1,0 +1,60 @@
+﻿@using Laboratorium_7.Models
+@model Laboratorium_7.Models.Album
+
+<div>
+    <h2>Szczegóły Albumu</h2>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Nazwa
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Name
+        </dd>
+        <dt class="col-sm-2">
+            Nazwa zespołu
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Band
+        </dd>
+        <dt class="col-sm-2">
+            Lista piosenek
+        </dt>
+        <dd class="col-sm-10">
+            @Model.TrackList
+        </dd>
+        <dt class="col-sm-2">
+            Data wydania
+        </dt>
+        <dd class="col-sm-10">
+            @Model.ReleaseDate.ToString("dd.MM.yyyy")
+        </dd>
+        <dt class="col-sm-2">
+            Czas trwania
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Duration
+        </dd>
+        <dt class="col-sm-2">
+            Popularność albumu
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Popularity.GetDisplayName()
+        </dd>
+        <dt class="col-sm-2">
+            Data i godzina dodania
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Created
+        </dd>
+        <dt class="col-sm-2">
+            Wytwórnia
+        </dt>
+        <dd class="col-sm-10">
+            @Model.RecordLabelId
+        </dd>
+    </dl>
+</div>
+<a class="btn btn-primary" asp-controller="Album" asp-action="Edit" asp-route-id="@Model.Id">Edytuj</a>
+<a class="btn btn-primary" asp-controller="Album" asp-action="Index">Powrót do listy</a>
+

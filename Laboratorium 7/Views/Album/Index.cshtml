@@ -1,0 +1,44 @@
+﻿@using Laboratorium_7.Models
+@model List<Album>
+
+<h2>Lista Albumów</h2>
+
+@if (Model.Count > 0) 
+{
+    <table class="table">
+        <tr>
+            <th>
+                Nazwa
+            </th>
+            <th>
+                Nazwa zespołu
+            </th>
+            <th>
+                Popularność albumu
+            </th>
+            <th>
+                Akcje
+            </th>
+        </tr>
+
+        @foreach (var item in @Model)
+        {
+            <tr>
+                <td>
+                    @item.Name
+                </td>
+                <td>
+                    @item.Band
+                </td>
+                <td>
+                    @item.Popularity.GetDisplayName()
+                </td>
+                <td>
+                    <a class="btn btn-primary" asp-controller="Album" asp-action="Edit" asp-route-id=@item.Id>Edytuj</a>
+                    <a class="btn btn-primary" asp-controller="Album" asp-action="Details" asp-route-id=@item.Id>Szczegóły</a>
+                    <a class="btn btn-primary" asp-controller="Album" asp-action="Delete" asp-route-id=@item.Id>Usuń</a>
+                </td>
+            </tr>
+        }
+</table>
+}
