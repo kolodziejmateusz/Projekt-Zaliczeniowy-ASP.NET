@@ -1,4 +1,6 @@
 ﻿using Data.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Data
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<IdentityUser>
     {
         public DbSet<AlbumEntity> Albums { get; set; }
         public DbSet<RecordLabelEntity> RecordLabels { get; set; }
@@ -25,6 +27,75 @@ namespace Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
+            string ADMIN_ID = Guid.NewGuid().ToString();
+            string ADMIN_ROLE_ID = Guid.NewGuid().ToString();
+            string USER_ID = Guid.NewGuid().ToString();
+            string USER_ROLE_ID = Guid.NewGuid().ToString();
+
+            // dodanie roli administratora i user
+            modelBuilder.Entity<IdentityRole>().HasData(
+                new IdentityRole
+                {
+                    Name = "admin",
+                    NormalizedName = "ADMIN",
+                    Id = ADMIN_ROLE_ID,
+                    ConcurrencyStamp = ADMIN_ROLE_ID
+                },
+                new IdentityRole
+                {
+                    Name = "user",
+                    NormalizedName = "USER",
+                    Id = USER_ROLE_ID,
+                    ConcurrencyStamp = USER_ROLE_ID
+                });
+
+            // utworzenie administratora i user jako użytkownika
+            var admin = new IdentityUser
+            {
+                Id = ADMIN_ID,
+                Email = "adam@wsei.edu.pl",
+                EmailConfirmed = true,
+                UserName = "adam",
+                NormalizedUserName = "ADMIN",
+                NormalizedEmail = "ADAM@WSEI.EDU.PL"
+            };
+
+            var user = new IdentityUser
+            {
+                Id = USER_ID,
+                Email = "jan@wsei.edu.pl",
+                EmailConfirmed = true,
+                UserName = "jan",
+                NormalizedUserName = "JAN",
+                NormalizedEmail = "JAN@WSEI.EDU.PL"
+            };
+
+            // haszowanie hasła
+            PasswordHasher<IdentityUser> ph = new PasswordHasher<IdentityUser>();
+            admin.PasswordHash = ph.HashPassword(admin, "1234abcd!@#$ABCD");
+            user.PasswordHash = ph.HashPassword(user, "1234abcd!@#$ABCD");
+
+            // zapisanie użytkowników
+            modelBuilder.Entity<IdentityUser>().HasData(admin);
+            modelBuilder.Entity<IdentityUser>().HasData(user);
+
+            // przypisanie roli administratora i usera użytkownikowi
+            modelBuilder.Entity<IdentityUserRole<string>>()
+            .HasData(
+                new IdentityUserRole<string>
+                {
+                    RoleId = ADMIN_ROLE_ID,
+                    UserId = ADMIN_ID
+                },
+                new IdentityUserRole<string>
+                {
+                    RoleId = USER_ROLE_ID,
+                    UserId = USER_ID
+                });
+
+
             modelBuilder.Entity<AlbumEntity>().HasOne(e => e.RecordLabel).WithMany(o => o.Albums).HasForeignKey(e => e.RecordLabelId);
 
             modelBuilder.Entity<RecordLabelEntity>().HasData(
@@ -79,7 +150,7 @@ namespace Data
                 );
 
             modelBuilder.Entity<AlbumEntity>().HasData(
-                
+
                 new AlbumEntity()
                 {
                     Id = 1,
