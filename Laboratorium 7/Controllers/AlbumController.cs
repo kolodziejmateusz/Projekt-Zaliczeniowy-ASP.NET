@@ -1,9 +1,11 @@
 ﻿using Laboratorium_7.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Laboratorium_7.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AlbumController : Controller
     {
         private readonly IAlbumService _albumService;
@@ -13,6 +15,7 @@ namespace Laboratorium_7.Controllers
             _albumService = albumService;
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
             var albums = _albumService.FindAll();

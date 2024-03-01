@@ -22,7 +22,7 @@ namespace Laboratorium_7
                 .AddRoles<IdentityRole>()   
                 .AddEntityFrameworkStores<Data.AppDbContext>();
 
-            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<AppDbContext>();
+            //builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<AppDbContext>();
             builder.Services.AddTransient<IAlbumService, EFAlbumService>();
             builder.Services.AddMemoryCache();
             builder.Services.AddSession();
