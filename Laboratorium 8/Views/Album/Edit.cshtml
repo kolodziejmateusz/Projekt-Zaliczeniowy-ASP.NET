@@ -1,0 +1,71 @@
+﻿@using Laboratorium_8.Models
+@model Laboratorium_8.Models.Album
+
+<p>Edycja Albumu TODO</p>
+<a class="btn btn-primary" asp-controller="Album" asp-action="Index">Powrót do listy</a>
+
+<form asp-action="Edit" method="post">
+    @* <div asp-validation-summary="All"></div> *@
+    <input type="hidden" asp-for="Id" />
+    <div>
+        <label asp-for="Name">Nazwa</label>
+        <div>
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <input class="form-control" type="text" asp-for="Name" />
+    </div>
+
+    <div>
+        <label asp-for="Band">Zespół</label>
+        <div>
+            <span asp-validation-for="Band" class="text-danger"></span>
+        </div>
+        <input class="form-control" type="text" asp-for="Band" />
+    </div>
+
+    <div>
+        <label asp-for="TrackList">Lista piosenek</label>
+        <div>
+            <span asp-validation-for="TrackList" class="text-danger"></span>
+        </div>
+        <input class="form-control" type="text" asp-for="TrackList" />
+    </div>
+
+    <div>
+        <label asp-for="ReleaseDate">Data wydania</label>
+        <div>
+            <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+        </div>
+        <input class="form-control" type="date" asp-for="ReleaseDate" />
+    </div>
+
+    <div>
+        <label asp-for="Duration">Czas trwania (minuty i senundy)</label>
+        <div>
+            <span asp-validation-for="Duration" class="text-danger"></span>
+        </div>
+        <input class="form-control" type="text" asp-for="Duration" />
+    </div>
+
+    <div>
+        <label asp-for="Popularity"></label>
+        <div>
+            <span asp-validation-for="Popularity" class="text-danger"></span>
+        </div>
+        <select class="form-control" asp-for="Popularity" asp-items="@Html.GetEnumSelectList<Popularity>()"></select>
+    </div>
+
+    <div>
+        <label asp-for="RecordLabelId"></label>
+        <div></div>
+        <select class="form-control" asp-for="RecordLabelId" asp-items="@Model.RecordLabels"></select>
+    </div>
+
+    <input type="hidden" asp-for="Created" />
+
+    <br />
+
+    <button type="submit">Zapisz</button>
+
+</form>
+
