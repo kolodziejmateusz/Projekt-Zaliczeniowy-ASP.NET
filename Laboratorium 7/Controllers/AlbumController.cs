@@ -68,6 +68,7 @@ namespace Laboratorium_7.Controllers
             {
                 return NotFound();
             }
+            InitializeRecordLabels(album);
             return View(album);
         }
 
@@ -79,6 +80,7 @@ namespace Laboratorium_7.Controllers
                 _albumService.Edit(album);
                 return RedirectToAction("Index");
             }
+            InitializeRecordLabels(album);
             return View(album);
         }
 

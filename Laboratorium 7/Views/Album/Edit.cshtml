@@ -54,6 +54,13 @@
         </div>
         <select class="form-control" asp-for="Popularity" asp-items="@Html.GetEnumSelectList<Popularity>()"></select>
     </div>
+
+    <div>
+        <label asp-for="RecordLabelId"></label>
+        <div></div>
+        <select class="form-control" asp-for="RecordLabelId" asp-items="@Model.RecordLabels"></select>
+    </div>
+
     <input type="hidden" asp-for="Created" />
 
     <br />
