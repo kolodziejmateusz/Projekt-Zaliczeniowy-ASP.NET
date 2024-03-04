@@ -1,5 +1,6 @@
 ﻿using Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Laboratorium_8.Controllers
 {
@@ -18,9 +19,10 @@ namespace Laboratorium_8.Controllers
         public IActionResult GetFiltered(string filter)
         {
             return Ok(_context.RecordLabels
-                .Where(o => o.Name.StartsWith(filter))
+                .Where(o => EF.Functions.Like(o.Name, $"{filter}%"))
                 .Select(o => new { o.Name, o.Id })
                 .ToList());
         }
+
     }
 }

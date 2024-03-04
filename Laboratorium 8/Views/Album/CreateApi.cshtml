@@ -1,0 +1,97 @@
+﻿@using Laboratorium_8.Models
+@model Laboratorium_8.Models.Album
+
+<form asp-action="CreateApi" method="post">
+    @* <div asp-validation-summary="All"></div> *@
+
+    <div>
+        <label asp-for="Name">Nazwa</label>
+        <div>
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <input class="form-control" type="text" asp-for="Name" />
+    </div>
+
+    <div>
+        <label asp-for="Band">Zespół</label>
+        <div>
+            <span asp-validation-for="Band" class="text-danger"></span>
+        </div>
+        <input class="form-control" type="text" asp-for="Band" />
+    </div>
+
+    <div>
+        <label asp-for="TrackList">Lista piosenek</label>
+        <div>
+            <span asp-validation-for="TrackList" class="text-danger"></span>
+        </div>
+        <input class="form-control" type="text" asp-for="TrackList" />
+    </div>
+
+    <div>
+        <label asp-for="ReleaseDate">Data wydania</label>
+        <div>
+            <span asp-validation-for="ReleaseDate" class="text-danger"></span>
+        </div>
+        <input class="form-control" type="date" asp-for="ReleaseDate" />
+    </div>
+
+    <div>
+        <label asp-for="Duration">Czas trwania (minuty i senundy)</label>
+        <div>
+            <span asp-validation-for="Duration" class="text-danger"></span>
+        </div>
+        <input class="form-control" type="text" asp-for="Duration" />
+    </div>
+
+    <div>
+        <label asp-for="Popularity"></label>
+        <div>
+            <span asp-validation-for="Popularity" class="text-danger"></span>
+        </div>
+        <select class="form-control" asp-for="Popularity" asp-items="@Html.GetEnumSelectList<Popularity>()"></select>
+    </div>
+
+    <div>
+        <label for="filter">Filtr Wytwórni</label>
+        <input class="form-control mb-3" type="text" name="filter" id="filter"/>
+        <label asp-for="RecordLabelId"></label>
+        <select class="form-control mb-3" asp-for="RecordLabelId"></select>
+    </div>
+
+    <br />
+
+    <button type="submit">Zapisz</button>
+
+</form>
+
+@section Scripts {
+    <script>
+        let select = document.getElementById("RecordLabelId");
+        let filter = document.getElementById("filter");
+        filter.onchange = function (e) {
+            if (filter.value.length == 0) {
+                return;
+            }
+            fetch(`/api/recordlabels?filter=${filter.value}`)
+                .then(response => {
+                    if (response.ok) {
+                        return response.json()
+                    }
+                    throw "No OK, actual status " + response.status;
+                })
+                .then(json => {
+                    select.innerHTML = '';
+                    for (let item of json) {
+                        let option = document.createElement('option');
+                        option.setAttribute('value', item.id);
+                        option.innerText = item.name;
+                        select.appendChild(option);
+                    }
+                })
+                .catch(e => {
+                    console.log('Cant get data from api', e);
+                });
+        };
+    </script>
+}

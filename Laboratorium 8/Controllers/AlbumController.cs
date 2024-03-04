@@ -61,6 +61,24 @@ namespace Laboratorium_8.Controllers
         }
 
         [HttpGet]
+        public IActionResult CreateApi()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult CreateApi(Album album)
+        {
+            if (ModelState.IsValid)
+            {
+                _albumService.Add(album);
+                return RedirectToAction(nameof(Index));
+            }
+            return View(album);
+        }
+       
+        [HttpGet]
         public IActionResult Edit(int id)
         {
             var album = _albumService.FindById(id);
