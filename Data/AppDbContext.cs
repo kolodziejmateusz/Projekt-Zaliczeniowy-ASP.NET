@@ -138,6 +138,86 @@ namespace Data
                     Regon = "567891234",
                     Nip = "543219876",
                     Website = "www.retrosoundstudios.com"
+                },
+                new RecordLabelEntity
+                {
+                    Id = 6,
+                    Name = "Aurora Melodies",
+                    Regon = "678912345",
+                    Nip = "432198765",
+                    Website = "www.auroramelodies.com"
+                },
+                new RecordLabelEntity
+                {
+                    Id = 7,
+                    Name = "Bluewave Studio",
+                    Regon = "789123456",
+                    Nip = "321987654",
+                    Website = "www.bluewavestudio.com"
+                },
+                new RecordLabelEntity
+                {
+                    Id = 8,
+                    Name = "Cosmic Tunes",
+                    Regon = "891234567",
+                    Nip = "219876543",
+                    Website = "www.cosmictunes.com"
+                },
+                new RecordLabelEntity
+                {
+                    Id = 9,
+                    Name = "Dreamscape Audio",
+                    Regon = "912345678",
+                    Nip = "198765432",
+                    Website = "www.dreamscapeaudio.com"
+                },
+                new RecordLabelEntity
+                {
+                    Id = 10,
+                    Name = "Eclipse Records",
+                    Regon = "123456780",
+                    Nip = "987654320",
+                    Website = "www.eclipserecords.com"
+                },
+                new RecordLabelEntity
+                {
+                    Id = 11,
+                    Name = "Fusion Beats",
+                    Regon = "234567890",
+                    Nip = "876543210",
+                    Website = "www.fusionbeats.com"
+                },
+                new RecordLabelEntity
+                {
+                    Id = 12,
+                    Name = "Galaxy Grooves",
+                    Regon = "345678901",
+                    Nip = "765432109",
+                    Website = "www.galaxygrooves.com"
+                },
+                new RecordLabelEntity
+                {
+                    Id = 13,
+                    Name = "Harmony Hub",
+                    Regon = "456789012",
+                    Nip = "654321098",
+                    Website = "www.harmonyhub.com"
+                },
+                new RecordLabelEntity
+                {
+                    Id = 14,
+                    Name = "Infinity Sounds",
+                    Regon = "567890123",
+                    Nip = "543210987",
+                    Website = "www.infinitysounds.com"
+                },
+                new RecordLabelEntity
+                {
+                    Id = 15,
+                    Name = "Jazz Journey",
+                    Regon = "678901234",
+                    Nip = "432109876",
+                    Website = "www.jazzjourney.com"
                 });
 
             modelBuilder.Entity<RecordLabelEntity>().OwnsOne(e => e.Address)
@@ -146,7 +226,17 @@ namespace Data
                 new { RecordLabelEntityId = 2, City = "Gdańsk", Street = "Długa", HouseNumber = "45/6", PostalCode = "80-831", State = "pomorskie", Country = "Poland" },
                 new { RecordLabelEntityId = 3, City = "Wrocław", Street = "Rynek", HouseNumber = "13", PostalCode = "50-101", State = "dolnośląskie", Country = "Poland" },
                 new { RecordLabelEntityId = 4, City = "Kraków", Street = "Floriańska", HouseNumber = "39", PostalCode = "31-019", State = "małopolskie", Country = "Poland" },
-                new { RecordLabelEntityId = 5, City = "Poznań", Street = "Święty Marcin", HouseNumber = "80/82", PostalCode = "61-809", State = "wielkopolskie", Country = "Poland" }
+                new { RecordLabelEntityId = 5, City = "Poznań", Street = "Święty Marcin", HouseNumber = "80/82", PostalCode = "61-809", State = "wielkopolskie", Country = "Poland" },
+                new { RecordLabelEntityId = 6, City = "Warszawa", Street = "Marszałkowska", HouseNumber = "27A", PostalCode = "00-639", State = "mazowieckie", Country = "Poland" },
+                new { RecordLabelEntityId = 7, City = "Gdańsk", Street = "Długa", HouseNumber = "45/6", PostalCode = "80-831", State = "pomorskie", Country = "Poland" },
+                new { RecordLabelEntityId = 8, City = "Wrocław", Street = "Rynek", HouseNumber = "13", PostalCode = "50-101", State = "dolnośląskie", Country = "Poland" },
+                new { RecordLabelEntityId = 9, City = "Kraków", Street = "Floriańska", HouseNumber = "39", PostalCode = "31-019", State = "małopolskie", Country = "Poland" },
+                new { RecordLabelEntityId = 10, City = "Poznań", Street = "Święty Marcin", HouseNumber = "80/82", PostalCode = "61-809", State = "wielkopolskie", Country = "Poland" },
+                new { RecordLabelEntityId = 11, City = "Warszawa", Street = "Marszałkowska", HouseNumber = "27A", PostalCode = "00-639", State = "mazowieckie", Country = "Poland" },
+                new { RecordLabelEntityId = 12, City = "Gdańsk", Street = "Długa", HouseNumber = "45/6", PostalCode = "80-831", State = "pomorskie", Country = "Poland" },
+                new { RecordLabelEntityId = 13, City = "Wrocław", Street = "Rynek", HouseNumber = "13", PostalCode = "50-101", State = "dolnośląskie", Country = "Poland" },
+                new { RecordLabelEntityId = 14, City = "Kraków", Street = "Floriańska", HouseNumber = "39", PostalCode = "31-019", State = "małopolskie", Country = "Poland" },
+                new { RecordLabelEntityId = 15, City = "Poznań", Street = "Święty Marcin", HouseNumber = "80/82", PostalCode = "61-809", State = "wielkopolskie", Country = "Poland" }
                 );
 
             modelBuilder.Entity<AlbumEntity>().HasData(

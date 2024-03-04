@@ -1,7 +1,7 @@
 ﻿@using Laboratorium_8.Models
 @model Laboratorium_8.Models.Album
 
-<form asp-action="CreateApi" method="post">
+<form asp-action="EditApi" method="post">
     @* <div asp-validation-summary="All"></div> *@
 
     <div>
@@ -52,9 +52,11 @@
         <select class="form-control" asp-for="Popularity" asp-items="@Html.GetEnumSelectList<Popularity>()"></select>
     </div>
 
+    <input type="hidden" asp-for="Created" />
+
     <div>
         <label for="filter">Filtr Wytwórni</label>
-        <input class="form-control mb-3" type="text" name="filter" id="filter"/>
+        <input class="form-control mb-3" type="text" name="filter" id="filter" />
         <label asp-for="RecordLabelId"></label>
         <div>
             <span asp-validation-for="RecordLabelId" class="text-danger"></span>

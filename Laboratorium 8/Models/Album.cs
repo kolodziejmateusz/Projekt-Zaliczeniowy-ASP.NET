@@ -12,11 +12,11 @@ namespace Laboratorium_8.Models
         public int Id { get; set; }
         [Required(ErrorMessage = "Podaj nazwe albumu.")]
         [Display(Name = "Nazwa")]
-        [MaxLength(100, ErrorMessage = "Nazwa albumu jest za długa"), MinLength(3, ErrorMessage = "Nazwa albumu jest za któtka.")]
+        [MaxLength(100, ErrorMessage = "Nazwa albumu jest za długa."), MinLength(3, ErrorMessage = "Nazwa albumu jest za któtka.")]
         public string Name { get; set; }
         [Required(ErrorMessage = "Podaj nazwe zespołu.")]
         [Display(Name = "Zespół")]
-        [MaxLength(100, ErrorMessage = "Nazwa zespołu jest za długa"), MinLength(3, ErrorMessage = "Nazwa zespołu jest za któtka.")]
+        [MaxLength(100, ErrorMessage = "Nazwa zespołu jest za długa."), MinLength(3, ErrorMessage = "Nazwa zespołu jest za któtka.")]
         public string Band { get; set; }
         [Display(Name = "Lista piosenek")]
         public string? TrackList { get; set; }
@@ -33,6 +33,8 @@ namespace Laboratorium_8.Models
         public DateTime Created {  get; set; }
         [HiddenInput]
         [Display(Name = "Wytwórnia")]
+        [Required]
+        [Range(1,1000, ErrorMessage = "Wyszukaj i wybierz wytwórnie.")]
         public int RecordLabelId { get; set; }
         [ValidateNever]
         public List<SelectListItem> RecordLabels { get; set; }

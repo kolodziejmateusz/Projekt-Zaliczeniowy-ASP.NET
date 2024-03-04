@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Laboratorium_8.Controllers
 {
-    [Authorize(Roles = "admin")]
     public class AlbumController : Controller
     {
         private readonly IAlbumService _albumService;
@@ -15,7 +14,6 @@ namespace Laboratorium_8.Controllers
             _albumService = albumService;
         }
 
-        [AllowAnonymous]
         public IActionResult Index()
         {
             var albums = _albumService.FindAll();
@@ -40,6 +38,7 @@ namespace Laboratorium_8.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Create(Album album)
         {
             if (ModelState.IsValid)
@@ -54,6 +53,7 @@ namespace Laboratorium_8.Controllers
             }
         }
 
+        [Authorize(Roles = "admin")]
         public IActionResult Delete(int id)
         {
             _albumService.Delete(id);
@@ -91,6 +91,7 @@ namespace Laboratorium_8.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Edit(Album album)
         {
             if (ModelState.IsValid)
@@ -99,6 +100,28 @@ namespace Laboratorium_8.Controllers
                 return RedirectToAction("Index");
             }
             InitializeRecordLabels(album);
+            return View(album);
+        }
+        [HttpGet]
+        public IActionResult EditApi(int id)
+        {
+            var album = _albumService.FindById(id);
+            if (album == null)
+            {
+                return NotFound();
+            }
+            return View(album);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult EditApi(Album album)
+        {
+            if (ModelState.IsValid)
+            {
+                _albumService.Edit(album);
+                return RedirectToAction("Index");
+            }
             return View(album);
         }
 
