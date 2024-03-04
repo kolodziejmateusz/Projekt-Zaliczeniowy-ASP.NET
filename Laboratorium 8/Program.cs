@@ -42,6 +42,8 @@ namespace Laboratorium_8
 
             app.UseRouting();
 
+            app.UseMiddleware<LastVisitCookie>();
+
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseSession();
